@@ -4,7 +4,7 @@ const PARTICLE_OBJ = preload("res://Particle.tscn")
 
 var is_ghost = false
 var is_ghost_mono = false
-var is_particle = false
+var is_particle = true
 
 var layer_particle:CanvasLayer
 

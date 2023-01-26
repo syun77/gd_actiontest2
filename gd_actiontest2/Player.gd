@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 const GHOST_EFFECT = preload("res://GhostEffect.tscn")
 
-const MOVE_SPEED := 500.0
+const MOVE_SPEED := 300.0
 const MOVE_DECAY := 0.9
-const JUMP_POWER := 1500.0
-const GRAVITY := 5000.0
+const JUMP_POWER := 1200.0
+const GRAVITY := 4000.0
 const JUMP_SCALE_TIME := 0.2
 const JUMP_SCALE_VAL_JUMP := 0.3
 const JUMP_SCALE_VAL_LANDING := 0.25
@@ -107,7 +107,7 @@ func _move_horizontal(delta:float) -> void:
 
 	if state != eState.JUMP:
 		# ジャンプ中でなければ走り判定
-		if abs(velocity.x) < 3.0:
+		if abs(velocity.x) < 30.0:
 			state = eState.IDLE
 		else:
 			if state != eState.RUN:

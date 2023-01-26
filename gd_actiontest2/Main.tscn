@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://new_theme.tres" type="Theme" id=4]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PixelMplus12.tres" type="Theme" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -115,47 +116,12 @@ margin_bottom = 70.0
 theme = ExtResource( 4 )
 text = "60FPS"
 
-[node name="CheckBoxGhost" type="CheckBox" parent="."]
-margin_left = 680.0
-margin_top = 80.0
-margin_right = 704.0
-margin_bottom = 104.0
-pressed = true
-
-[node name="Label" type="Label" parent="CheckBoxGhost"]
-margin_left = 32.0
-margin_top = -8.0
-margin_right = 160.0
-margin_bottom = 38.0
-theme = ExtResource( 4 )
-text = "ゴースト"
-
-[node name="CheckBoxGhostMono" type="CheckBox" parent="."]
-margin_left = 680.0
-margin_top = 112.0
-margin_right = 704.0
-margin_bottom = 136.0
-pressed = true
-
-[node name="Label" type="Label" parent="CheckBoxGhostMono"]
-margin_left = 32.0
-margin_top = -8.0
-margin_right = 160.0
-margin_bottom = 38.0
-theme = ExtResource( 4 )
-text = "単色ゴースト"
-
-[node name="CheckBoxParticle" type="CheckBox" parent="."]
-margin_left = 680.0
-margin_top = 144.0
-margin_right = 704.0
-margin_bottom = 168.0
-pressed = true
-
-[node name="Label" type="Label" parent="CheckBoxParticle"]
-margin_left = 32.0
-margin_top = -8.0
-margin_right = 160.0
-margin_bottom = 38.0
-theme = ExtResource( 4 )
-text = "パーティクル"
+[node name="Label" type="RichTextLabel" parent="."]
+margin_left = 410.0
+margin_top = 294.0
+margin_right = 791.0
+margin_bottom = 432.0
+theme = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[img=40]res://a_button.png[/img] でジャンプします"
+text = " でジャンプします"
