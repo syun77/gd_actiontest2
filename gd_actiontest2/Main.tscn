@@ -1,0 +1,161 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://new_theme.tres" type="Theme" id=4]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 32, 608 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 96, 608 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 160, 608 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 224, 608 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 288, 608 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 352, 608 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 416, 608 )
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 480, 608 )
+
+[node name="Wall9" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 544, 608 )
+
+[node name="Wall10" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 608, 608 )
+
+[node name="Wall11" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 672, 608 )
+
+[node name="Wall12" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 736, 608 )
+
+[node name="Wall13" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 800, 608 )
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 864, 608 )
+
+[node name="Wall15" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 928, 608 )
+
+[node name="Wall16" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 992, 608 )
+
+[node name="Floors" type="Node2D" parent="."]
+
+[node name="Floor" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 224, 384 )
+
+[node name="Floor2" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 288, 384 )
+
+[node name="Floor3" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 352, 384 )
+
+[node name="Floor4" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 352, 256 )
+
+[node name="Floor5" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 416, 256 )
+
+[node name="Floor6" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 480, 256 )
+
+[node name="Floor10" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 800, 320 )
+
+[node name="Floor11" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 864, 320 )
+
+[node name="Floor12" parent="Floors" instance=ExtResource( 3 )]
+position = Vector2( 928, 320 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 176, 344 )
+
+[node name="GhostEffectLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ParticleLayer" type="CanvasLayer" parent="."]
+
+[node name="HSliderFPS" type="HSlider" parent="."]
+margin_left = 680.0
+margin_top = 32.0
+margin_right = 1000.0
+margin_bottom = 48.0
+focus_mode = 1
+min_value = 5.0
+max_value = 60.0
+step = 5.0
+value = 60.0
+
+[node name="Label" type="Label" parent="HSliderFPS"]
+margin_left = 216.0
+margin_top = 24.0
+margin_right = 311.0
+margin_bottom = 70.0
+theme = ExtResource( 4 )
+text = "60FPS"
+
+[node name="CheckBoxGhost" type="CheckBox" parent="."]
+margin_left = 680.0
+margin_top = 80.0
+margin_right = 704.0
+margin_bottom = 104.0
+pressed = true
+
+[node name="Label" type="Label" parent="CheckBoxGhost"]
+margin_left = 32.0
+margin_top = -8.0
+margin_right = 160.0
+margin_bottom = 38.0
+theme = ExtResource( 4 )
+text = "ゴースト"
+
+[node name="CheckBoxGhostMono" type="CheckBox" parent="."]
+margin_left = 680.0
+margin_top = 112.0
+margin_right = 704.0
+margin_bottom = 136.0
+pressed = true
+
+[node name="Label" type="Label" parent="CheckBoxGhostMono"]
+margin_left = 32.0
+margin_top = -8.0
+margin_right = 160.0
+margin_bottom = 38.0
+theme = ExtResource( 4 )
+text = "単色ゴースト"
+
+[node name="CheckBoxParticle" type="CheckBox" parent="."]
+margin_left = 680.0
+margin_top = 144.0
+margin_right = 704.0
+margin_bottom = 168.0
+pressed = true
+
+[node name="Label" type="Label" parent="CheckBoxParticle"]
+margin_left = 32.0
+margin_top = -8.0
+margin_right = 160.0
+margin_bottom = 38.0
+theme = ExtResource( 4 )
+text = "パーティクル"
