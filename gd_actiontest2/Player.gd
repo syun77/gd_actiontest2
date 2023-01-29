@@ -50,6 +50,10 @@ var _key:Key = null
 # ゴーストエフェクトを表示する CanvasLayer
 onready var _ghost_effects = $"../GhostEffectLayer"
 
+func vanish() -> void:
+	pass
+	#queue_free()
+
 func is_idle() -> bool:
 	return state == eState.IDLE
 

@@ -3,6 +3,7 @@ extends Node2D
 class_name Window
 
 const TIMER_FULL = 0.5
+const TIMER_SMALL = 2.0
 
 enum eType {
 	FULL,
@@ -13,6 +14,7 @@ enum eMsg {
 	JUMP,
 	DOUBLE_JUMP,
 	KEY,
+	SPIKE,
 }
 
 onready var _bg = $Bg
@@ -29,6 +31,8 @@ func open(type:int, msg:int) -> void:
 		eType.FULL:
 			_bg.visible = true
 			_timer = TIMER_FULL
+		eType.SMALL:
+			_timer = TIMER_SMALL
 	
 	match msg:
 		eMsg.JUMP:
@@ -37,6 +41,8 @@ func open(type:int, msg:int) -> void:
 			_msg.bbcode_text = "[center]ジャンプ中に[img=40]res://a_button.png[/img] で２段ジャンプします[/center]"	
 		eMsg.KEY:
 			_msg.bbcode_text = "[center]カギを取るとロックを解除します[/center]"
+		eMsg.SPIKE:
+			_msg.bbcode_text = "[center]トゲにさわるとやられます[/center]"
 
 func _ready() -> void:
 	_hide()
@@ -53,4 +59,11 @@ func _process(delta: float) -> void:
 			if _timer <= 0.0:
 				if Input.is_action_just_pressed("ui_z"):
 					queue_free()
+		eType.SMALL:
+			_timer = max(0.0, _timer-delta)
+			modulate.a = 1.0
+			if _timer < 0.5:
+				 modulate.a = _timer / 0.5
+			if _timer <= 0.0:
+				queue_free()
 

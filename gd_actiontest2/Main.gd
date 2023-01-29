@@ -17,6 +17,7 @@ onready var _ui_layer = $UILayer
 
 onready var _hslider_fps = $UILayer/HSliderFPS
 onready var _label_fps = $UILayer/HSliderFPS/Label
+onready var _checkbox_window = $UILayer/CheckBoxWindow
 
 var _board_list = []
 var _ui_list = []
@@ -26,6 +27,7 @@ var _window = null
 func _ready() -> void:
 	_ui_list = [
 		_hslider_fps,
+		_checkbox_window,
 	]
 	
 	for obj in _main_layer.get_children():
@@ -36,11 +38,12 @@ func _ready() -> void:
 	
 	var layers = {
 		"wall" : _wall_layer,
+		"main" : _main_layer,
 		"particle" : _particle_layer,
 		"ui" : _ui_layer,
 	}
 	
-	Common.setup(layers)
+	Common.setup(layers, _player)
 
 
 func _process(delta: float) -> void:
@@ -51,12 +54,23 @@ func _process(delta: float) -> void:
 		eState.MAIN:
 			for board in _board_list:
 				if board.is_hit:
-					if Input.is_action_just_pressed("ui_z"):
-						_set_process(false)
-						_window = WINDOW_OBJ.instance()
-						_ui_layer.add_child(_window)
-						_window.open(Window.eType.FULL, board.msg_id)
-						_state = eState.POP_UP
+					var type = Window.eType.FULL
+					if _checkbox_window.pressed:
+						type = Window.eType.SMALL
+					
+					if type == Window.eType.FULL:
+						if Input.is_action_just_pressed("ui_z"):
+							_set_process(false)
+							_window = WINDOW_OBJ.instance()
+							_ui_layer.add_child(_window)
+							_window.open(type, board.msg_id)
+							_state = eState.POP_UP
+					else:
+						if is_instance_valid(_window) == false:
+							_window = WINDOW_OBJ.instance()
+							_ui_layer.add_child(_window)
+						_window.open(type, board.msg_id)
+					
 		eState.POP_UP:
 			if is_instance_valid(_window) == false:
 				_set_process(true)

@@ -15,22 +15,22 @@ margin_bottom = 300.0
 color = Color( 0, 0, 0, 0.25098 )
 
 [node name="ColorRect" type="ColorRect" parent="Bg"]
-margin_top = 230.0
+margin_top = 355.0
 margin_right = 1024.0
-margin_bottom = 366.0
+margin_bottom = 491.0
 color = Color( 0, 0.858824, 1, 1 )
 
 [node name="Window" type="ColorRect" parent="Bg"]
 margin_left = 4.0
-margin_top = 233.0
+margin_top = 358.0
 margin_right = 1020.0
-margin_bottom = 361.0
+margin_bottom = 486.0
 color = Color( 0, 0.278431, 0.376471, 1 )
 
 [node name="Message" type="RichTextLabel" parent="."]
 margin_left = -512.0
-margin_top = -28.0
+margin_top = 97.0
 margin_right = 512.0
-margin_bottom = 36.0
+margin_bottom = 161.0
 theme = ExtResource( 2 )
 bbcode_enabled = true
