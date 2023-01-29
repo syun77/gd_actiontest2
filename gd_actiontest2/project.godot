@@ -9,13 +9,49 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Board",
+"language": "GDScript",
+"path": "res://Board.gd"
+}, {
+"base": "Node2D",
+"class": "Easing",
+"language": "GDScript",
+"path": "res://Ease.gd"
+}, {
+"base": "Area2D",
+"class": "Key",
+"language": "GDScript",
+"path": "res://Key.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Lock",
+"language": "GDScript",
+"path": "res://Lock.gd"
+}, {
 "base": "Sprite",
 "class": "Particle",
 "language": "GDScript",
 "path": "res://Particle.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+}, {
+"base": "Node2D",
+"class": "Window",
+"language": "GDScript",
+"path": "res://Window.gd"
 } ]
 _global_script_class_icons={
-"Particle": ""
+"Board": "",
+"Easing": "",
+"Key": "",
+"Lock": "",
+"Particle": "",
+"Player": "",
+"Window": ""
 }
 
 [application]
@@ -27,12 +63,18 @@ config/icon="res://icon.png"
 [autoload]
 
 Common="*res://Common.gd"
+Ease="*res://Ease.gd"
 
 [input]
 
 ui_click={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+ui_z={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

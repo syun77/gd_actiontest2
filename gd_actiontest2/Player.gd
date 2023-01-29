@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 const GHOST_EFFECT = preload("res://GhostEffect.tscn")
 
 const MOVE_SPEED := 300.0
@@ -43,6 +45,8 @@ var is_left = false # 左を向いているかどうか
 var ghost_cnt = 0.0
 var jump_cnt = 0
 
+var _key:Key = null
+
 # ゴーストエフェクトを表示する CanvasLayer
 onready var _ghost_effects = $"../GhostEffectLayer"
 
@@ -74,6 +78,8 @@ func _physics_process(delta: float) -> void:
 	
 	# ジャンプ・着地演出
 	_update_jump_scale_anim(delta)
+	
+	_update_key()
 
 # ジャンプ判定
 func _update_jump() -> void:
@@ -229,6 +235,11 @@ func _add_particle(is_gravity:bool, is_move:bool=false) -> void:
 		var sc = rand_range(0.5, 1.0)
 		var t = rand_range(0.01, 0.5)
 		Common.add_particle(position + ofs, v, sc, t, is_gravity)
+
+func _update_key() -> void:
+	if is_instance_valid(_key) == false:
+		return
+	
 
 func approach(a:float, b:float, step:float) -> float:
 	var d = b - a

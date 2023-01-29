@@ -1,103 +1,276 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://new_theme.tres" type="Theme" id=4]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=5]
-[ext_resource path="res://PixelMplus12.tres" type="Theme" id=6]
+[ext_resource path="res://Key.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Board.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Lock.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="WallLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
 
-[node name="Wall" parent="Walls" instance=ExtResource( 5 )]
+[node name="Lock" parent="WallLayer" instance=ExtResource( 8 )]
+position = Vector2( 544, 544 )
+
+[node name="Walls" type="Node2D" parent="WallLayer"]
+
+[node name="Wall" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 32, 608 )
 
-[node name="Wall2" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall2" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 96, 608 )
 
-[node name="Wall3" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall3" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 160, 608 )
 
-[node name="Wall4" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall4" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 224, 608 )
 
-[node name="Wall5" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall5" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 288, 608 )
 
-[node name="Wall6" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall6" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 352, 608 )
 
-[node name="Wall7" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall7" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 416, 608 )
 
-[node name="Wall8" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall8" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 480, 608 )
 
-[node name="Wall9" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall9" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 544, 608 )
 
-[node name="Wall10" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall10" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 608, 608 )
 
-[node name="Wall11" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall11" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 672, 608 )
 
-[node name="Wall12" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall12" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 736, 608 )
 
-[node name="Wall13" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall13" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 800, 608 )
 
-[node name="Wall14" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall14" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 864, 608 )
 
-[node name="Wall15" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall15" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 928, 608 )
 
-[node name="Wall16" parent="Walls" instance=ExtResource( 5 )]
+[node name="Wall16" parent="WallLayer/Walls" instance=ExtResource( 5 )]
 position = Vector2( 992, 608 )
 
-[node name="Floors" type="Node2D" parent="."]
+[node name="Wall49" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -992, 608 )
 
-[node name="Floor" parent="Floors" instance=ExtResource( 3 )]
+[node name="Wall50" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -928, 608 )
+
+[node name="Wall51" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -864, 608 )
+
+[node name="Wall52" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -800, 608 )
+
+[node name="Wall53" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -736, 608 )
+
+[node name="Wall54" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -672, 608 )
+
+[node name="Wall55" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -608, 608 )
+
+[node name="Wall56" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -544, 608 )
+
+[node name="Wall57" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -480, 608 )
+
+[node name="Wall58" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -416, 608 )
+
+[node name="Wall59" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -352, 608 )
+
+[node name="Wall60" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -288, 608 )
+
+[node name="Wall61" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -224, 608 )
+
+[node name="Wall62" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -160, 608 )
+
+[node name="Wall63" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -96, 608 )
+
+[node name="Wall64" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( -32, 608 )
+
+[node name="Wall17" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1056, 608 )
+
+[node name="Wall18" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1120, 608 )
+
+[node name="Wall19" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1184, 608 )
+
+[node name="Wall20" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1248, 608 )
+
+[node name="Wall21" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1312, 608 )
+
+[node name="Wall22" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1376, 608 )
+
+[node name="Wall23" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1440, 608 )
+
+[node name="Wall24" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1504, 608 )
+
+[node name="Wall25" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1568, 608 )
+
+[node name="Wall26" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1632, 608 )
+
+[node name="Wall27" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1696, 608 )
+
+[node name="Wall28" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1760, 608 )
+
+[node name="Wall29" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1824, 608 )
+
+[node name="Wall30" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1888, 608 )
+
+[node name="Wall31" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 1952, 608 )
+
+[node name="Wall32" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2016, 608 )
+
+[node name="Wall33" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2080, 608 )
+
+[node name="Wall34" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2144, 608 )
+
+[node name="Wall35" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2208, 608 )
+
+[node name="Wall36" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2272, 608 )
+
+[node name="Wall37" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2336, 608 )
+
+[node name="Wall38" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2400, 608 )
+
+[node name="Wall39" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2464, 608 )
+
+[node name="Wall40" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2528, 608 )
+
+[node name="Wall41" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2592, 608 )
+
+[node name="Wall42" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2656, 608 )
+
+[node name="Wall43" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2720, 608 )
+
+[node name="Wall44" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2784, 608 )
+
+[node name="Wall45" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2848, 608 )
+
+[node name="Wall46" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2912, 608 )
+
+[node name="Wall47" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 2976, 608 )
+
+[node name="Wall48" parent="WallLayer/Walls" instance=ExtResource( 5 )]
+position = Vector2( 3040, 608 )
+
+[node name="MainLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Board" parent="MainLayer" instance=ExtResource( 7 )]
+position = Vector2( 416, 576 )
+
+[node name="Board2" parent="MainLayer" instance=ExtResource( 7 )]
+position = Vector2( 1184, 576 )
+msg_id = 1
+
+[node name="Board3" parent="MainLayer" instance=ExtResource( 7 )]
+position = Vector2( 2144, 576 )
+msg_id = 2
+
+[node name="Player" parent="MainLayer" instance=ExtResource( 1 )]
+position = Vector2( 176, 344 )
+
+[node name="Floors" type="Node2D" parent="MainLayer"]
+
+[node name="Floor" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 224, 384 )
 
-[node name="Floor2" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor2" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 288, 384 )
 
-[node name="Floor3" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor3" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 352, 384 )
 
-[node name="Floor4" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor4" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 352, 256 )
 
-[node name="Floor5" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor5" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 416, 256 )
 
-[node name="Floor6" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor6" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 480, 256 )
 
-[node name="Floor10" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor10" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 800, 320 )
 
-[node name="Floor11" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor11" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 864, 320 )
 
-[node name="Floor12" parent="Floors" instance=ExtResource( 3 )]
+[node name="Floor12" parent="MainLayer/Floors" instance=ExtResource( 3 )]
 position = Vector2( 928, 320 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 176, 344 )
+[node name="Key" parent="MainLayer" instance=ExtResource( 6 )]
+position = Vector2( 288, 360 )
 
 [node name="GhostEffectLayer" type="CanvasLayer" parent="."]
 layer = -1
+follow_viewport_enable = true
 
 [node name="ParticleLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
 
-[node name="HSliderFPS" type="HSlider" parent="."]
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HSliderFPS" type="HSlider" parent="UILayer"]
 margin_left = 680.0
 margin_top = 32.0
 margin_right = 1000.0
@@ -108,7 +281,7 @@ max_value = 60.0
 step = 5.0
 value = 60.0
 
-[node name="Label" type="Label" parent="HSliderFPS"]
+[node name="Label" type="Label" parent="UILayer/HSliderFPS"]
 margin_left = 216.0
 margin_top = 24.0
 margin_right = 311.0
@@ -116,12 +289,7 @@ margin_bottom = 70.0
 theme = ExtResource( 4 )
 text = "60FPS"
 
-[node name="Label" type="RichTextLabel" parent="."]
-margin_left = 410.0
-margin_top = 294.0
-margin_right = 791.0
-margin_bottom = 432.0
-theme = ExtResource( 6 )
-bbcode_enabled = true
-bbcode_text = "[img=40]res://a_button.png[/img] でジャンプします"
-text = " でジャンプします"
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+current = true
+smoothing_enabled = true
