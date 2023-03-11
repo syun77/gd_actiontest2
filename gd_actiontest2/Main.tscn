@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqxnlxu6rsmfp"]
+[gd_scene load_steps=12 format=3 uid="uid://cqxnlxu6rsmfp"]
 
 [ext_resource type="PackedScene" uid="uid://d1abukx2d74a8" path="res://Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Main.gd" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c6yodicnwpjfy" path="res://Lock.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://Spike.tscn" id="9"]
 [ext_resource type="PackedScene" path="res://EnemyHole.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://cr0f0ueicbnj2" path="res://Enemy.tscn" id="11_ays7k"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("2")
@@ -191,10 +192,10 @@ position = Vector2(352, 416)
 position = Vector2(352, 352)
 
 [node name="Wall94" parent="WallLayer/Walls" instance=ExtResource("5")]
-position = Vector2(1056, 416)
+position = Vector2(736, 544)
 
 [node name="Wall95" parent="WallLayer/Walls" instance=ExtResource("5")]
-position = Vector2(1056, 352)
+position = Vector2(736, 480)
 
 [node name="Wall92" parent="WallLayer/Walls" instance=ExtResource("5")]
 position = Vector2(1056, 544)
@@ -464,7 +465,7 @@ position = Vector2(2528, 384)
 msg_id = 3
 
 [node name="Player" parent="MainLayer" instance=ExtResource("1")]
-position = Vector2(1234, 433)
+position = Vector2(356, 278)
 
 [node name="Floors" type="Node2D" parent="MainLayer"]
 
@@ -582,3 +583,6 @@ position = Vector2(176, 299)
 
 [node name="EnemyHole" parent="." instance=ExtResource("10")]
 position = Vector2(3040, 160)
+
+[node name="Enemy" parent="." instance=ExtResource("11_ays7k")]
+position = Vector2(461, 501)
