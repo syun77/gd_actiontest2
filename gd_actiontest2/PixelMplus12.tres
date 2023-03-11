@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bqyf0o2jagu0t"]
-
-[ext_resource type="FontFile" uid="uid://dalcq1j4wmf81" path="res://PixelMplus12-Regular.ttf" id="1"]
-
-[resource]
-default_font = ExtResource("1")
-default_font_size = 32
