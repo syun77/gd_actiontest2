@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbvqas1yoop1l"]
+
+[ext_resource type="Script" path="res://src/enemy/Tako.gd" id="1_avvwc"]
+[ext_resource type="Texture2D" uid="uid://b8kexoftcr81k" path="res://assets/images/tako.png" id="1_dq1k6"]
+
+[node name="Tako" type="Node2D"]
+script = ExtResource("1_avvwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dq1k6")

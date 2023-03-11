@@ -3,6 +3,7 @@ extends Node2D
 const WINDOW_OBJ = preload("res://src/common/Window.tscn")
 const NASU_OBJ = preload("res://src/enemy/Nasu.tscn")
 const NASU2_OBJ = preload("res://src/enemy/Nasu2.tscn")
+const TAKO_OBJ = preload("res://src/enemy/Tako.tscn")
 
 enum eState {
 	MAIN,
@@ -22,6 +23,8 @@ enum eState {
 @onready var _checkbox_window = $UILayer/CheckBoxWindow
 @onready var _check_nasu = $UILayer/VBoxContainer/Nasu
 @onready var _check_nasu2 = $UILayer/VBoxContainer/Nasu2
+@onready var _check_tako = $UILayer/VBoxContainer/Tako
+@onready var _check_tako2 = $UILayer/VBoxContainer/Tako2
 
 var _board_list = []
 var _ui_list = []
@@ -118,3 +121,22 @@ func _update_enemy() -> void:
 		if _cnt%(60 * 10) == 1:
 			var nasu2 = NASU2_OBJ.instantiate()
 			_main_layer.add_child(nasu2)
+	if _check_tako.button_pressed:
+		if _cnt%(60 * 4) == 1:
+			if randi()%2 == 0:
+				pos.x -= 1024
+			var ofs_y = randf_range(-300, 300)
+			pos.y += ofs_y
+			var tako = TAKO_OBJ.instantiate()
+			tako.setup(pos, Tako.eMode.HORMING)
+			_main_layer.add_child(tako)
+			
+	if _check_tako2.button_pressed:
+		if _cnt%(60 * 4) == 1:
+			if randi()%2 == 0:
+				pos.x -= 1024
+			var ofs_y = randf_range(-300, 300)
+			pos.y += ofs_y
+			var tako = TAKO_OBJ.instantiate()
+			tako.setup(pos, Tako.eMode.INTERVAL)
+			_main_layer.add_child(tako)
