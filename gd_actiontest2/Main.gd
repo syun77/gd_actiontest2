@@ -37,6 +37,8 @@ var _window = null
 var _cnt = 0
 
 func _ready() -> void:
+	#DisplayServer.window_set_size(Vector2i(1024*2, 600*2))
+	
 	_ui_list = [
 		_hslider_fps,
 		_checkbox_window,
