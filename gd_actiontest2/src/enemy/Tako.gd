@@ -13,6 +13,7 @@ enum eState {
 enum eMode {
 	HORMING,
 	INTERVAL,
+	MIDDLE_RANGE,
 }
 
 var _timer = 0.0
@@ -41,6 +42,8 @@ func _process(delta):
 					_update_horming(delta)
 				eMode.INTERVAL:
 					_update_interval(delta)
+				eMode.MIDDLE_RANGE:
+					_update_middle_range(delta)
 	if Common.is_in_screen(self) == false:
 		queue_free()
 
@@ -63,3 +66,28 @@ func _update_interval(delta:float) -> void:
 		_velocity *= MOVE_SPEED
 		rotation = atan2(_velocity.y, _velocity.x)
 		_timer = 0
+
+func _update_middle_range(delta:float) -> void:
+	var target = Common.get_target_pos()
+	var d = target - position
+	var dist = d.length()
+	var tmp = d.normalized()
+	if dist < 128:
+		# 逃げる.
+		tmp *= -1
+		_velocity = tmp * 300
+	if _timer > 2:
+		if dist > 256:
+			# 近づく.
+			_velocity = tmp
+			_velocity.y += 0.1
+		else:
+			var sign = 1.0
+			if randi()%2 == 0:
+				sign = -1.0
+			_velocity = tmp.rotated(90 * sign)
+		_velocity *= 300
+		_timer = 0
+	_velocity *= 0.97
+	position += _velocity * delta	
+

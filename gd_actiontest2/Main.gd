@@ -1,5 +1,7 @@
 extends Node2D
 
+const WINDOW_ENABLE = false
+
 const WINDOW_OBJ = preload("res://src/common/Window.tscn")
 const NASU_OBJ = preload("res://src/enemy/Nasu.tscn")
 const NASU2_OBJ = preload("res://src/enemy/Nasu2.tscn")
@@ -25,6 +27,7 @@ enum eState {
 @onready var _check_nasu2 = $UILayer/VBoxContainer/Nasu2
 @onready var _check_tako = $UILayer/VBoxContainer/Tako
 @onready var _check_tako2 = $UILayer/VBoxContainer/Tako2
+@onready var _check_tako3 = $UILayer/VBoxContainer/Tako3
 
 var _board_list = []
 var _ui_list = []
@@ -63,24 +66,8 @@ func _process(delta: float) -> void:
 	
 	match _state:
 		eState.MAIN:
-			for board in _board_list:
-				if board.is_hit:
-					var type = Window2.eType.FULL
-					if _checkbox_window.pressed:
-						type = Window2.eType.SMALL
-					
-					if type == Window2.eType.FULL:
-						if Input.is_action_just_pressed("ui_z"):
-							_set_process(false)
-							_window = WINDOW_OBJ.instantiate()
-							_ui_layer.add_child(_window)
-							_window.open(type, board.msg_id)
-							_state = eState.POP_UP
-					else:
-						if is_instance_valid(_window) == false:
-							_window = WINDOW_OBJ.instantiate()
-							_ui_layer.add_child(_window)
-						_window.open(type, board.msg_id)
+			if WINDOW_ENABLE:
+				_update_main(delta)
 					
 		eState.POP_UP:
 			if is_instance_valid(_window) == false:
@@ -102,6 +89,27 @@ func _process(delta: float) -> void:
 func _set_process(b:bool) -> void:
 	_player.set_process(b)
 	_player.set_physics_process(b)
+
+func _update_main(delta:float) -> void:
+	for board in _board_list:
+		if board.is_hit:
+			var type = Window2.eType.FULL
+			if _checkbox_window.pressed:
+				type = Window2.eType.SMALL
+			
+			if type == Window2.eType.FULL:
+				if Input.is_action_just_pressed("ui_z"):
+					_set_process(false)
+					_window = WINDOW_OBJ.instantiate()
+					_ui_layer.add_child(_window)
+					_window.open(type, board.msg_id)
+					_state = eState.POP_UP
+			else:
+				if is_instance_valid(_window) == false:
+					_window = WINDOW_OBJ.instantiate()
+					_ui_layer.add_child(_window)
+				_window.open(type, board.msg_id)
+
 	
 func _update_camera() -> void:
 	if is_instance_valid(_player) == false:
@@ -140,3 +148,20 @@ func _update_enemy() -> void:
 			var tako = TAKO_OBJ.instantiate()
 			tako.setup(pos, Tako.eMode.INTERVAL)
 			_main_layer.add_child(tako)
+	
+	if _check_tako3.button_pressed:
+		if _count_tako() == 0:
+			if randi()%2 == 0:
+				pos.x -= 1024
+			var ofs_y = randf_range(-300, 300)
+			var tako = TAKO_OBJ.instantiate()
+			tako.setup(pos, Tako.eMode.MIDDLE_RANGE)
+			_main_layer.add_child(tako)
+
+func _count_tako() -> int:
+	var ret = 0
+	for obj in _main_layer.get_children():
+		if not obj is Tako:
+			continue
+		ret += 1
+	return ret

@@ -600,7 +600,6 @@ text = "Nasu2"
 [node name="Tako" type="CheckBox" parent="UILayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_vwqfs")
-button_pressed = true
 button_group = ExtResource("10_g1w6t")
 text = "Tako"
 
@@ -610,6 +609,13 @@ theme = ExtResource("9_vwqfs")
 button_group = ExtResource("10_g1w6t")
 text = "Tako2"
 
+[node name="Tako3" type="CheckBox" parent="UILayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_vwqfs")
+button_pressed = true
+button_group = ExtResource("10_g1w6t")
+text = "Tako3"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(176, 299)
 
@@ -618,3 +624,11 @@ position = Vector2(3040, 160)
 
 [node name="Enemy" parent="." instance=ExtResource("11_ays7k")]
 position = Vector2(461, 501)
+
+[node name="Enemy2" parent="." instance=ExtResource("11_ays7k")]
+position = Vector2(1056, 416)
+mode = 1
+
+[node name="Enemy3" parent="." instance=ExtResource("11_ays7k")]
+position = Vector2(-448, 552)
+mode = 2
