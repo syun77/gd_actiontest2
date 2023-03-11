@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" uid="uid://dyet038aktkej" path="res://assets/images/player.png" id="1"]
+[ext_resource type="Script" path="res://src/player/GhostEffect.gd" id="2"]
+
+[sub_resource type="Shader" id=1]
+code = "// CanvasItemのシェーダーであることを宣言
+shader_type canvas_item;
+
+uniform bool is_mono = true;
+
+// フラグメントシェーダー
+void fragment() {
+    // 色を取得
+    vec4 color = texture(TEXTURE, UV);
+	if(is_mono) {
+	    // アルファ値以外を置き換える
+    	color.rgb = vec3(0.7, 0.7, 1);
+	}
+    // 反映
+    COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/is_mono = true
+
+[node name="GhostEffect" type="Sprite2D"]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -28 )
+hframes = 8
+script = ExtResource( 2 )

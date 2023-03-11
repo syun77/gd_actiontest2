@@ -1,6 +1,6 @@
 extends Node2D
 
-const WINDOW_OBJ = preload("res://Window.tscn")
+const WINDOW_OBJ = preload("res://src/common/Window.tscn")
 
 enum eState {
 	MAIN,
