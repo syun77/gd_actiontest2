@@ -3,6 +3,8 @@
 .import/
 export.cfg
 export_presets.cfg
+.godot
+*.import
 
 # Mono-specific ignores
 .mono/
@@ -10,3 +12,4 @@ data_*/
 
 # for macOS
 .DS_Store
+

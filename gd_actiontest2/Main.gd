@@ -7,17 +7,17 @@ enum eState {
 	POP_UP,
 }
 
-onready var _player = $MainLayer/Player
-onready var _camera = $Camera2D
+@onready var _player = $MainLayer/Player
+@onready var _camera = $Camera2D
 
-onready var _main_layer = $MainLayer
-onready var _particle_layer = $ParticleLayer
-onready var _wall_layer = $WallLayer
-onready var _ui_layer = $UILayer
+@onready var _main_layer = $MainLayer
+@onready var _particle_layer = $ParticleLayer
+@onready var _wall_layer = $WallLayer
+@onready var _ui_layer = $UILayer
 
-onready var _hslider_fps = $UILayer/HSliderFPS
-onready var _label_fps = $UILayer/HSliderFPS/Label
-onready var _checkbox_window = $UILayer/CheckBoxWindow
+@onready var _hslider_fps = $UILayer/HSliderFPS
+@onready var _label_fps = $UILayer/HSliderFPS/Label
+@onready var _checkbox_window = $UILayer/CheckBoxWindow
 
 var _board_list = []
 var _ui_list = []
@@ -54,20 +54,20 @@ func _process(delta: float) -> void:
 		eState.MAIN:
 			for board in _board_list:
 				if board.is_hit:
-					var type = Window.eType.FULL
+					var type = Window2.eType.FULL
 					if _checkbox_window.pressed:
-						type = Window.eType.SMALL
+						type = Window2.eType.SMALL
 					
-					if type == Window.eType.FULL:
+					if type == Window2.eType.FULL:
 						if Input.is_action_just_pressed("ui_z"):
 							_set_process(false)
-							_window = WINDOW_OBJ.instance()
+							_window = WINDOW_OBJ.instantiate()
 							_ui_layer.add_child(_window)
 							_window.open(type, board.msg_id)
 							_state = eState.POP_UP
 					else:
 						if is_instance_valid(_window) == false:
-							_window = WINDOW_OBJ.instance()
+							_window = WINDOW_OBJ.instantiate()
 							_ui_layer.add_child(_window)
 						_window.open(type, board.msg_id)
 					

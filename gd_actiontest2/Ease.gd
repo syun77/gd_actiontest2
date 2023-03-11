@@ -279,4 +279,4 @@ func get_function(type:int) -> String:
 		return tbl[type]
 	else:
 		print("未定義のイージング関数: %d"%type)
-		return self.linear
+		return "linear"

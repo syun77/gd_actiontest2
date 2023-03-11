@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var _spr = $Spike
+@onready var _spr = $Spike
 
 var _timer = 0.0
 var _cnt = 0

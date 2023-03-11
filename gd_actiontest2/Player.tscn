@@ -1,25 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://d1abukx2d74a8"]
 
-[ext_resource path="res://player.png" type="Texture" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://Player.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dyet038aktkej" path="res://player.png" id="2_w5s2h"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 28.5 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(28, 51.25)
 
-[node name="Player" type="KinematicBody2D"]
-script = ExtResource( 2 )
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("2")
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-offset = Vector2( 0, -28 )
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w5s2h")
+offset = Vector2(0, -28)
 hframes = 8
 
-[node name="SpriteFrontFlip" type="Sprite" parent="."]
+[node name="SpriteFrontFlip" type="Sprite2D" parent="."]
 visible = false
-position = Vector2( 0, -28 )
-texture = ExtResource( 1 )
+position = Vector2(0, -28)
+texture = ExtResource("2_w5s2h")
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -28.5 )
-shape = SubResource( 1 )
+position = Vector2(0, -26)
+shape = SubResource("1")

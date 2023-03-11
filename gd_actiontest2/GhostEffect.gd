@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 var _timer:float
 var _max_timer:float
@@ -14,7 +14,7 @@ func start(_position:Vector2, _scale:Vector2, _frame:int, _flip_h:bool, rot:floa
 	_timer = 0.5
 	_max_timer = _timer
 	# 単色シェーダーのフラグ設定.
-	material.set_shader_param("is_mono", Common.is_ghost_mono)
+	material.set_shader_parameter("is_mono", Common.is_ghost_mono)
 
 func _process(delta: float) -> void:
 	_timer -= delta

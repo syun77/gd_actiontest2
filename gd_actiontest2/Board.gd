@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Board
 
-export var msg_id:int = 0
+@export var msg_id:int = 0
 
 var is_hit = false
 

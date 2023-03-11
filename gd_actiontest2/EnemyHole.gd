@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 	_timer += delta
 	if int(_timer)%3 == 0:
 		if _count_enemy() == 0:
-			var enemy = ENEMY_OBJ.instance()
+			var enemy = ENEMY_OBJ.instantiate()
 			enemy.position = position
 			Common.get_layer("main").add_child(enemy)
 

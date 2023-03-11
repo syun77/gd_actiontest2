@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://player.png" type="Texture" id=1]
+[ext_resource path="res://player.png" type="Texture2D" id=1]
 [ext_resource path="res://GhostEffect.gd" type="Script" id=2]
 
 [sub_resource type="Shader" id=1]
@@ -25,7 +25,7 @@ void fragment() {
 shader = SubResource( 1 )
 shader_param/is_mono = true
 
-[node name="GhostEffect" type="Sprite"]
+[node name="GhostEffect" type="Sprite2D"]
 material = SubResource( 2 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -28 )
