@@ -612,9 +612,15 @@ text = "Tako2"
 [node name="Tako3" type="CheckBox" parent="UILayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_vwqfs")
-button_pressed = true
 button_group = ExtResource("10_g1w6t")
 text = "Tako3"
+
+[node name="Tako4" type="CheckBox" parent="UILayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_vwqfs")
+button_pressed = true
+button_group = ExtResource("10_g1w6t")
+text = "Tako4"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(176, 299)

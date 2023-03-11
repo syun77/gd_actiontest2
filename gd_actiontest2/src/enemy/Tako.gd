@@ -14,6 +14,7 @@ enum eMode {
 	HORMING,
 	INTERVAL,
 	MIDDLE_RANGE,
+	ROUND, # 回り込み.
 }
 
 var _timer = 0.0
@@ -44,6 +45,8 @@ func _process(delta):
 					_update_interval(delta)
 				eMode.MIDDLE_RANGE:
 					_update_middle_range(delta)
+				eMode.ROUND:
+					_update_round(delta)
 	if Common.is_in_screen(self) == false:
 		queue_free()
 
@@ -91,3 +94,32 @@ func _update_middle_range(delta:float) -> void:
 	_velocity *= 0.97
 	position += _velocity * delta	
 
+func _update_round(delta:float) -> void:
+	var target = Common.get_target_pos()
+	var d = target - position
+	var dist = d.length() 
+	var tmp = d.normalized()
+	if dist < 128:
+		# 逃げる.
+		tmp *= -1
+		_velocity = tmp * 300
+	if _timer > 0.5:
+		_timer = 0
+		var tmp2 = tmp * -1
+		var target_x = target.x + 256
+		if Common.is_target_left():
+			# 左側.
+			target_x = target.x - 256
+		var dist_x = target_x - position.x
+		if tmp2.y < 0:
+			if Common.is_target_left() and dist_x < 0:
+				# 左向き.
+				tmp = tmp2.rotated(-90)
+				_timer = 0.4
+			elif Common.is_target_left() == false and dist_x > 0:
+				tmp = tmp2.rotated(90)
+				_timer = 0.4
+		_velocity = tmp
+		_velocity *= 300
+	_velocity *= 0.97
+	position += _velocity * delta	

@@ -28,6 +28,7 @@ enum eState {
 @onready var _check_tako = $UILayer/VBoxContainer/Tako
 @onready var _check_tako2 = $UILayer/VBoxContainer/Tako2
 @onready var _check_tako3 = $UILayer/VBoxContainer/Tako3
+@onready var _check_tako4 = $UILayer/VBoxContainer/Tako4
 
 var _board_list = []
 var _ui_list = []
@@ -156,6 +157,15 @@ func _update_enemy() -> void:
 			var ofs_y = randf_range(-300, 300)
 			var tako = TAKO_OBJ.instantiate()
 			tako.setup(pos, Tako.eMode.MIDDLE_RANGE)
+			_main_layer.add_child(tako)
+	
+	if _check_tako4.button_pressed:
+		if _count_tako() == 0:
+			if randi()%2 == 0:
+				pos.x -= 1024
+			var ofs_y = randf_range(-300, 300)
+			var tako = TAKO_OBJ.instantiate()
+			tako.setup(pos, Tako.eMode.ROUND)
 			_main_layer.add_child(tako)
 
 func _count_tako() -> int:
