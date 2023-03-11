@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqmhj1ei4xs2b"]
+
+[ext_resource type="Texture2D" uid="uid://0twto5puo06j" path="res://assets/images/nasu.png" id="1_n2uqw"]
+[ext_resource type="Script" path="res://src/enemy/Nasu.gd" id="1_yxqj6"]
+[ext_resource type="Theme" path="res://assets/fonts/PixelMplus12.tres" id="3_nrx8y"]
+
+[node name="Nasu" type="Node2D"]
+script = ExtResource("1_yxqj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_n2uqw")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_nrx8y")

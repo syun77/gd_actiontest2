@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://gy352pm1at4b"]
+
+[ext_resource type="Script" path="res://src/enemy/Nasu2.gd" id="1_sg4nt"]
+[ext_resource type="Texture2D" uid="uid://0twto5puo06j" path="res://assets/images/nasu.png" id="2_k6dqb"]
+[ext_resource type="Theme" path="res://assets/fonts/PixelMplus12.tres" id="3_y8ntb"]
+
+[sub_resource type="Curve2D" id="Curve2D_0t4jg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1034, -13, 96.9204, -193.841, -96.9204, 193.841, 1010, 87, 132.002, -42.2168, -132.002, 42.2168, 670, 503, 89.1905, 115.948, -89.1905, -115.948, 257, 471, -77.8931, 66.001, 77.8931, -66.001, 229, 160, -115.353, -44.5953, 115.353, 44.5953, 570, 66, -13.6759, -107.029, 13.6759, 107.029, 722, 206, 74.92, -70.1632, -74.92, 70.1632, 654, 391, 0, 0, -110.002, 1.78381, 459, 462, -9.51366, 70.1632, 9.51366, -70.1632, 249, 330, -89.7851, 38.0546, 89.7851, -38.0546, 383, 166, -19.0273, -112.38, 19.0273, 112.38, 566, 291, 0, 0, 0, 0, 502, 782)
+}
+point_count = 13
+
+[node name="Nasu2" type="Node2D"]
+script = ExtResource("1_sg4nt")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_y8ntb")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0t4jg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1034, -13)
+rotation = 1.80634
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+rotation = -1.80634
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k6dqb")

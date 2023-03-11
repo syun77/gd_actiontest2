@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://p5fborlcn2nt"]
+[gd_scene load_steps=13 format=3 uid="uid://p5fborlcn2nt"]
 
-[ext_resource type="PackedScene" path="res://src/player/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bt3ntw26kcqn4" path="res://src/player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Main.gd" id="2"]
 [ext_resource type="PackedScene" path="res://src/gimmic/Floor.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://src/gimmic/Wall.tscn" id="5"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" path="res://src/gimmic/Spike.tscn" id="9"]
 [ext_resource type="Theme" uid="uid://cfam12iwfcnbp" path="res://assets/fonts/new_theme.tres" id="9_vwqfs"]
 [ext_resource type="PackedScene" path="res://src/enemy/EnemyHole.tscn" id="10"]
+[ext_resource type="ButtonGroup" uid="uid://lqdab3sxs55m" path="res://assets/common/radio_buttongroup.tres" id="10_g1w6t"]
 [ext_resource type="PackedScene" path="res://src/enemy/Enemy.tscn" id="11_ays7k"]
 
 [node name="Main" type="Node2D"]
@@ -577,6 +578,25 @@ offset_right = 979.0
 offset_bottom = 122.0
 theme = ExtResource("9_vwqfs")
 text = "PopUp"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer"]
+offset_left = 696.0
+offset_top = 120.0
+offset_right = 736.0
+offset_bottom = 160.0
+
+[node name="Nasu" type="CheckBox" parent="UILayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_vwqfs")
+button_pressed = true
+button_group = ExtResource("10_g1w6t")
+text = "Nasu"
+
+[node name="Nasu2" type="CheckBox" parent="UILayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_vwqfs")
+button_group = ExtResource("10_g1w6t")
+text = "Nasu2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(176, 299)

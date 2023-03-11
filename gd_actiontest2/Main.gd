@@ -1,6 +1,8 @@
 extends Node2D
 
 const WINDOW_OBJ = preload("res://src/common/Window.tscn")
+const NASU_OBJ = preload("res://src/enemy/Nasu.tscn")
+const NASU2_OBJ = preload("res://src/enemy/Nasu2.tscn")
 
 enum eState {
 	MAIN,
@@ -18,11 +20,14 @@ enum eState {
 @onready var _hslider_fps = $UILayer/HSliderFPS
 @onready var _label_fps = $UILayer/HSliderFPS/Label
 @onready var _checkbox_window = $UILayer/CheckBoxWindow
+@onready var _check_nasu = $UILayer/VBoxContainer/Nasu
+@onready var _check_nasu2 = $UILayer/VBoxContainer/Nasu2
 
 var _board_list = []
 var _ui_list = []
 var _state = eState.MAIN
 var _window = null
+var _cnt = 0
 
 func _ready() -> void:
 	_ui_list = [
@@ -43,12 +48,15 @@ func _ready() -> void:
 		"ui" : _ui_layer,
 	}
 	
-	Common.setup(layers, _player)
+	Common.setup(layers, _player, _camera)
 
 
 func _process(delta: float) -> void:
+	_cnt += 1
 	
 	_update_camera()
+	
+	_update_enemy()
 	
 	match _state:
 		eState.MAIN:
@@ -97,3 +105,16 @@ func _update_camera() -> void:
 		return
 	
 	_camera.position.x = _player.position.x
+
+func _update_enemy() -> void:
+	var pos = _camera.position
+	pos.x += 1024/2
+	if _check_nasu.button_pressed:
+		if _cnt%(60 * 4) == 1:
+			var nasu = NASU_OBJ.instantiate()
+			nasu.setup(pos)
+			_main_layer.add_child(nasu)
+	if _check_nasu2.button_pressed:
+		if _cnt%(60 * 10) == 1:
+			var nasu2 = NASU2_OBJ.instantiate()
+			_main_layer.add_child(nasu2)
